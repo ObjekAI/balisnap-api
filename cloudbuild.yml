@@ -29,7 +29,7 @@ steps:
       'gcloud run deploy balisnap
           --image ${_ARTIFACT_REGION}/$PROJECT_ID/restful-api/balisnap:$SHORT_SHA
           --region asia-southeast2
-          --set-env-vars PORT=8080
+          --set-env-vars APP_PORT=8080
           --set-env-vars HOST=0.0.0.0
           --set-env-vars DATABASE_URL=$$DATABASE_URL
           --port 8080

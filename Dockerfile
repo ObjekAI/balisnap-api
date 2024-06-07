@@ -29,12 +29,12 @@ COPY --from=build /app/package.json ./package.json
 COPY --from=build /app/server.js ./server.js
 
 # Setup environment variables
-ENV PORT=8080
+ENV APP_PORT=8080
 ENV HOST=0.0.0.0
 ENV DATABASE_URL=mysql://user:password@db:3306/yourdatabase
 
 # Expose the port the app runs on
-EXPOSE ${PORT}
+EXPOSE ${APP_PORT}
 
 # Command to run the app
 CMD ["node", "server.js"]

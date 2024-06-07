@@ -9,7 +9,7 @@ BigInt.prototype.toJSON = function () {
 }
 
 const app = express()
-const port = process.env.PORT || 8080
+const port = process.env.APP_PORT || 8080
 const host = process.env.HOST || 'localhost'
 const prisma = new PrismaClient()
 
