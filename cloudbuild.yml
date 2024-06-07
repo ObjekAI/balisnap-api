@@ -29,7 +29,7 @@ steps:
 images:
   - '${_ARTIFACT_REGION}/$PROJECT_ID/$REPO_NAME/balisnap:$SHORT_SHA'
 
-subtitutions:
+substitutions:
   _ARTIFACT_REGION: asia-southeast2-docker.pkg.dev
 
 availableSecrets:
