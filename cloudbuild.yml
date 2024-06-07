@@ -24,10 +24,9 @@ steps:
     #   'managed',
     #   '--allow-unauthenticated'
     # ]
-    args:
-      - -c
-      - |
-        gcloud run deploy balisnap
+    args: [
+      '-c',
+      'gcloud run deploy balisnap
           --image ${_ARTIFACT_REGION}/$PROJECT_ID/restful-api/balisnap:$SHORT_SHA
           --region asia-southeast2
           --set-env-vars PORT=8080
@@ -35,7 +34,9 @@ steps:
           --set-env-vars DATABASE_URL=$$DATABASE_URL
           --port 8080
           --platform managed
-          --allow-unauthenticated
+          --allow-unauthenticated'
+    ]
+        
     # env:
     #   - 'PORT=8080'
     #   - 'HOST=0.0.0.0'
