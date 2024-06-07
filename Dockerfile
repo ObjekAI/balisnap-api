@@ -25,13 +25,13 @@ WORKDIR /app
 # Copy node_modules and built Prisma client from the previous stage
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/prisma ./prisma
-COPY --from=build /app/.env ./
 COPY --from=build /app/package.json ./package.json
 COPY --from=build /app/server.js ./server.js
 
 # Setup environment variables
 ENV APP_PORT=3000
 ENV APP_HOST=0.0.0.0
+ENV DATABASE_URL=mysql://user:password@db:3306/yourdatabase
 
 # Expose the port the app runs on
 EXPOSE ${APP_PORT}
