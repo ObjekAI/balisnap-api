@@ -24,6 +24,9 @@ steps:
       'managed',
       '--allow-unauthenticated'
     ]
+    env:
+      - 'APP_PORT=8080'
+      - 'APP_HOST=0.0.0.0'
     secretEnv: ['DATABASE_URL']
 
 images:
