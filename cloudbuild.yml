@@ -27,6 +27,7 @@ steps:
     env:
       - 'PORT=8080'
       - 'HOST=0.0.0.0'
+      - 'DATABASE_URL=$$DATABASE_URL'
     secretEnv: ['DATABASE_URL']
 
 images:
