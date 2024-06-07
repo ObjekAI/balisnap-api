@@ -3,12 +3,12 @@ steps:
     args: [
       'build', 
       '-t', 
-      '${_ARTIFACT_REGION}/$PROJECT_ID/$REPO_NAME/balisnap:$SHORT_SHA', 
+      '${_ARTIFACT_REGION}/$PROJECT_ID/restful-api/balisnap:$SHORT_SHA', 
       '.'
     ]
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', '${_ARTIFACT_REGION}/$PROJECT_ID/$REPO_NAME/balisnap:$SHORT_SHA']
+    args: ['push', '${_ARTIFACT_REGION}/$PROJECT_ID/restful-api/balisnap:$SHORT_SHA']
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
@@ -17,7 +17,7 @@ steps:
       'deploy', 
       'balisnap', 
       '--image', 
-      '${_ARTIFACT_REGION}/$PROJECT_ID/$REPO_NAME/balisnap:$SHORT_SHA', 
+      '${_ARTIFACT_REGION}/$PROJECT_ID/restful-api/balisnap:$SHORT_SHA', 
       '--region', 
       'asia-southeast2', 
       '--platform', 
@@ -27,7 +27,7 @@ steps:
     secretEnv: ['DATABASE_URL']
 
 images:
-  - '${_ARTIFACT_REGION}/$PROJECT_ID/$REPO_NAME/balisnap:$SHORT_SHA'
+  - '${_ARTIFACT_REGION}/$PROJECT_ID/restful-api/balisnap:$SHORT_SHA'
 
 substitutions:
   _ARTIFACT_REGION: asia-southeast2-docker.pkg.dev
