@@ -10,6 +10,7 @@ BigInt.prototype.toJSON = function () {
 
 const app = express()
 const port = process.env.APP_PORT || 3000
+const host = process.env.APP_HOST || 'localhost'
 const prisma = new PrismaClient()
 
 app.use(express.json())
@@ -109,6 +110,6 @@ app.get('/destinations/:slug', async (req, res) => {
     }
 })
 
-app.listen(port, () => {
+app.listen(port, host, () => {
     console.log(`server running on port ${port}`)
 })
