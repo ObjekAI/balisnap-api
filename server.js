@@ -1,5 +1,6 @@
 import dotenv from "dotenv"
 import express from "express"
+import cors from "cors"
 import { PrismaClient } from "@prisma/client"
 
 dotenv.config()
@@ -14,6 +15,7 @@ const host = process.env.HOST || 'localhost'
 const prisma = new PrismaClient()
 
 app.use(express.json())
+app.use(cors())
 
 app.get('/destinations/nearby', async (req, res) => {
     const { latitude, longitude, radius } = req.query;
