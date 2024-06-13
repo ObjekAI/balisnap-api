@@ -21,8 +21,46 @@ model Destination {
   image String?
   latitude Decimal?
   longitude Decimal?
-  created_at DateTime
-  updated_at DateTime
+  created_at DateTime?
+  updated_at DateTime?
 
   @@map("destinations")
+}
+
+model Food {
+  id BigInt @id @default(autoincrement())
+  locations FoodLocation[]
+  name String
+  description String?
+  image String?
+  created_at DateTime?
+  updated_at DateTime?
+
+  @@map("foods")
+}
+
+model Location {
+  id BigInt @id @default(autoincrement())
+  foods FoodLocation[]
+  name String
+  description String?
+  link String
+  image String?
+  latitude Decimal?
+  longitude Decimal?
+  created_at DateTime?
+  updated_at DateTime?
+
+  @@map("locations")
+}
+
+model FoodLocation {
+  food_id BigInt
+  food Food @relation(fields: [food_id], references: [id])
+
+  location_id BigInt
+  location Location @relation(fields: [location_id], references: [id])
+
+  @@id([food_id, location_id])
+  @@map("food_locations")
 }
