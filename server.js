@@ -2,6 +2,7 @@ import dotenv from "dotenv"
 import express from "express"
 import cors from "cors"
 import destinationRoute from "./routes/destination.js"
+import foodRoute from "./routes/food.js"
 
 dotenv.config()
 
@@ -17,6 +18,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use('/destinations', destinationRoute)
+app.use('/foods', foodRoute)
 
 app.listen(port, host, () => {
     console.log(`server running on port ${port}`)
