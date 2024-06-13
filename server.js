@@ -11,8 +11,8 @@ BigInt.prototype.toJSON = function () {
 }
 
 const app = express()
-const port = process.env.APP_PORT || 8080
-const host = process.env.HOST || 'localhost'
+const port = process.env.APP_PORT || 3000
+const host = process.env.HOST || '0.0.0.0'
 
 app.use(express.json())
 app.use(cors())

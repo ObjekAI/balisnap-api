@@ -29,7 +29,7 @@ COPY --from=build /app/package.json ./package.json
 COPY --from=build /app/server.js ./server.js
 
 # Setup environment variables
-ENV APP_PORT=8080
+ENV APP_PORT=3000
 ENV HOST=0.0.0.0
 ENV DATABASE_URL=mysql://user:password@db:3306/yourdatabase
 
