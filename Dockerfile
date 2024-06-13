@@ -26,6 +26,8 @@ WORKDIR /app
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/prisma ./prisma
 COPY --from=build /app/package.json ./package.json
+COPY --from=build /app/routes ./routes
+COPY --from=build /app/controllers ./controllers
 COPY --from=build /app/server.js ./server.js
 
 # Setup environment variables
