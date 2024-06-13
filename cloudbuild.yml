@@ -12,34 +12,18 @@ steps:
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: bash
-    # args: [
-    #   'run', 
-    #   'deploy', 
-    #   'balisnap', 
-    #   '--image', 
-    #   '${_ARTIFACT_REGION}/$PROJECT_ID/restful-api/balisnap:$SHORT_SHA', 
-    #   '--region', 
-    #   'asia-southeast2', 
-    #   '--platform', 
-    #   'managed',
-    #   '--allow-unauthenticated'
-    # ]
     args: [
       '-c',
       'gcloud run deploy balisnap
           --image ${_ARTIFACT_REGION}/$PROJECT_ID/restful-api/balisnap:$SHORT_SHA
           --region asia-southeast2
-          --set-env-vars APP_PORT=8080
+          --set-env-vars APP_PORT=3000
           --set-env-vars HOST=0.0.0.0
           --set-env-vars DATABASE_URL=$$DATABASE_URL
-          --port 8080
+          --port 3000
           --platform managed
           --allow-unauthenticated'
     ]
-        
-    # env:
-    #   - 'PORT=8080'
-    #   - 'HOST=0.0.0.0'
     secretEnv: ['DATABASE_URL']
 
 images:
