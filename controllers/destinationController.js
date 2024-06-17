@@ -33,6 +33,9 @@ const getNearbyLocation = async (req, res) => {
                  updated_at
             FROM
                 destinations
+            WHERE
+                latitude != ${userLatitude}
+                AND longitude != ${userLongitude}
             HAVING
                 distance <= ${userRadius}
             ORDER BY
